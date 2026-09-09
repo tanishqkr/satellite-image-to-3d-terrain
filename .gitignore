@@ -1,0 +1,40 @@
+# Python & Virtual Environments
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+env/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Node & Frontend
+node_modules/
+dist/
+.vite/
+.eslintcache
+
+# Raw Datasets & Bulky Caches
+data/
+backend/data/
+graphify-out/cache/
+graphify-out/.graphify_*
+backend/weights/archive_run1/
+backend/weights/checkpoints/
+*.npy
+*.npz
+
+# Runtime & Temporary Exports
+backend/exports/
+exports/
+backend/logs/*.jsonl
+browser_tests/
+test_results/
+
+# OS & IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
