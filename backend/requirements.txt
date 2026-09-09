@@ -1,0 +1,24 @@
+# --- Deep Learning & Computer Vision ---
+torch>=2.1.0
+torchvision>=0.16.0
+transformers>=4.40.0
+huggingface_hub>=0.20.0
+datasets>=2.19.0
+
+# --- FastAPI Web Backend ---
+fastapi>=0.111.0
+uvicorn[standard]>=0.29.0
+pydantic>=2.0.0
+python-multipart>=0.0.9
+
+# --- Geospatial & Scientific Computing ---
+rasterio>=1.3.0
+numpy>=1.24.0
+scipy>=1.11.0
+Pillow>=10.0.0
+matplotlib>=3.7.0
+h5py>=3.8.0
+
+# --- Logging & Utilities ---
+structlog>=24.1.0
+networkx>=3.0
