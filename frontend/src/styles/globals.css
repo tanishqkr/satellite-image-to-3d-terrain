@@ -1,0 +1,271 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #050608;
+  --bg-surface: #090B0E;
+  --bg-surface-elevated: #101217;
+  --bg-surface-hover: #16181F;
+  --border-hairline: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.28);
+  
+  --text-primary: #FFFFFF;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  --text-faint: #334155;
+
+  --accent-laser: #38BDF8;
+  --accent-crimson: #FF2A2A;
+  --accent-emerald: #34D399;
+}
+
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--bg-primary);
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* === Exaggerated Minimalism Utilities === */
+
+.stroke-text {
+  -webkit-text-stroke: 1.5px #FFFFFF;
+  color: transparent;
+}
+
+.stroke-text-muted {
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.3);
+  color: transparent;
+}
+
+.im-container {
+  background-color: var(--bg-primary);
+}
+
+.tech-grid-bg {
+  background-color: #050608;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.im-panel {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.im-panel-hover:hover {
+  border-color: var(--border-strong);
+  background-color: var(--bg-surface-elevated);
+}
+
+/* === Architectural Stark High-Contrast Buttons === */
+
+.im-btn-primary {
+  background-color: #FFFFFF;
+  color: #050608;
+  border: 1px solid #FFFFFF;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.im-btn-primary:hover {
+  background-color: transparent;
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+}
+
+.im-btn-primary:active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.im-btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #64748B;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.im-btn-secondary {
+  background-color: transparent;
+  color: #94A3B8;
+  border: 1px solid var(--border-hairline);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.im-btn-secondary:hover {
+  color: #FFFFFF;
+  border-color: var(--border-strong);
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+/* === Architectural Tabs === */
+
+.im-tabs-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: #050608;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.im-tab-button {
+  padding: 12px 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #64748B;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-bottom: 2px solid transparent;
+  border-right: 1px solid var(--border-hairline);
+}
+
+.im-tab-button:last-child {
+  border-right: none;
+}
+
+.im-tab-button:hover {
+  color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.im-tab-button-active {
+  color: #FFFFFF;
+  background-color: #090B0E;
+  border-bottom: 2px solid #38BDF8;
+  font-weight: 700;
+}
+
+/* === Minimalist Technical Badges === */
+
+.im-tag {
+  border: 1px solid var(--border-hairline);
+  background-color: rgba(255, 255, 255, 0.02);
+  color: var(--text-secondary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 3px 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.im-tag-accent {
+  border-color: rgba(56, 189, 248, 0.4);
+  background-color: transparent;
+  color: var(--accent-laser);
+}
+
+.im-tag-success {
+  border-color: rgba(52, 211, 153, 0.4);
+  background-color: transparent;
+  color: var(--accent-emerald);
+}
+
+/* === Precision Architectural Slider === */
+
+input[type="range"].im-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.2);
+  outline: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+input[type="range"].im-slider:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+input[type="range"].im-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+input[type="range"].im-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+  background: #38BDF8;
+}
+
+/* === Meta / Monospace Typography === */
+
+.im-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+}
+
+/* Clean Architectural Hairline Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+  border-left: 1px solid var(--border-hairline);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}

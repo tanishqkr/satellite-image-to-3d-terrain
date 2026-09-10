@@ -1,0 +1,35 @@
+{
+  "name": "depthwizard-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "node --experimental-strip-types --test src/lib/voxelize.test.ts src/components/drone/dsmSampling.test.ts src/lib/matrixCompositor.test.ts src/lib/rayMarch.test.ts src/lib/viewshed.test.ts"
+  },
+  "dependencies": {
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.18.0",
+    "d3-contour": "^4.0.2",
+    "d3-geo": "^3.1.1",
+    "lucide-react": "^0.475.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recharts": "^2.15.1",
+    "three": "^0.174.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.9",
+    "@types/d3-contour": "^3.0.6",
+    "@types/d3-geo": "^3.1.0",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@types/three": "^0.174.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "tailwindcss": "^4.0.9",
+    "typescript": "^5.7.3",
+    "vite": "^6.2.0"
+  }
+}
