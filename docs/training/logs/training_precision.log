@@ -1,0 +1,154 @@
+
+====================================================================
+  DEPTHWIZARD: PRECISION FINE-TUNING REFINEMENT (STAGE 2)
+  Device: NVIDIA GeForce RTX 4060 Laptop GPU (8.59 GB VRAM)
+  Warm Start Weights: E:\rishabh\sih\DepthWizard\backend\weights\archive_run1\best_model_epoch02_loss0.8044.pth
+  Epochs: 3 | Batch Size: 8 | BF16 Native Mixed Precision
+  Head LR: 6.0e-5 | Backbone LR: 5.0e-6 (Precision Gradient)
+  Loss: Stable Log1p SILog (0.5) + Smooth L1 (0.3) + Sobel Grad (0.2)
+====================================================================
+
+[11:51:55] Precision dataset loaded! Total valid patches on disk: 15348
+[11:51:55] Initializing base architecture depth-anything/Depth-Anything-V2-Small-hf...
+[11:51:56] Bootstrapping from proven Run 1 checkpoint: E:\rishabh\sih\DepthWizard\backend\weights\archive_run1\best_model_epoch02_loss0.8044.pth
+[11:51:56] Loaded warm weights successfully! Target baseline loss: 0.8044
+
+[11:51:57] Commencing precision training: 1918 batches/epoch, 3 epochs.
+
+  [Epoch 01/03] Batch 0050/1918 | Loss: 0.1830 | VRAM: 0.47 GB | LR: 1.53e-05
+  [Epoch 01/03] Batch 0100/1918 | Loss: 0.1733 | VRAM: 0.47 GB | LR: 3.03e-05
+  [Epoch 01/03] Batch 0150/1918 | Loss: 0.1699 | VRAM: 0.47 GB | LR: 4.53e-05
+  [Epoch 01/03] Batch 0200/1918 | Loss: 0.1699 | VRAM: 0.47 GB | LR: 6.00e-05
+  [Epoch 01/03] Batch 0250/1918 | Loss: 0.1681 | VRAM: 0.47 GB | LR: 6.00e-05
+  [Epoch 01/03] Batch 0300/1918 | Loss: 0.1665 | VRAM: 0.47 GB | LR: 6.00e-05
+  [Epoch 01/03] Batch 0350/1918 | Loss: 0.1657 | VRAM: 0.47 GB | LR: 5.99e-05
+  [Epoch 01/03] Batch 0400/1918 | Loss: 0.1654 | VRAM: 0.47 GB | LR: 5.98e-05
+  [Epoch 01/03] Batch 0450/1918 | Loss: 0.1656 | VRAM: 0.47 GB | LR: 5.97e-05
+  [Epoch 01/03] Batch 0500/1918 | Loss: 0.1647 | VRAM: 0.47 GB | LR: 5.96e-05
+  [Epoch 01/03] Batch 0550/1918 | Loss: 0.1642 | VRAM: 0.47 GB | LR: 5.94e-05
+  [Epoch 01/03] Batch 0600/1918 | Loss: 0.1645 | VRAM: 0.47 GB | LR: 5.92e-05
+  [Epoch 01/03] Batch 0650/1918 | Loss: 0.1645 | VRAM: 0.47 GB | LR: 5.90e-05
+  [Epoch 01/03] Batch 0700/1918 | Loss: 0.1642 | VRAM: 0.47 GB | LR: 5.88e-05
+  [Epoch 01/03] Batch 0750/1918 | Loss: 0.1640 | VRAM: 0.47 GB | LR: 5.86e-05
+  [Epoch 01/03] Batch 0800/1918 | Loss: 0.1633 | VRAM: 0.47 GB | LR: 5.83e-05
+  [Epoch 01/03] Batch 0850/1918 | Loss: 0.1633 | VRAM: 0.47 GB | LR: 5.80e-05
+  [Epoch 01/03] Batch 0900/1918 | Loss: 0.1633 | VRAM: 0.47 GB | LR: 5.77e-05
+  [Epoch 01/03] Batch 0950/1918 | Loss: 0.1628 | VRAM: 0.47 GB | LR: 5.73e-05
+  [Epoch 01/03] Batch 1000/1918 | Loss: 0.1628 | VRAM: 0.47 GB | LR: 5.70e-05
+  [Epoch 01/03] Batch 1050/1918 | Loss: 0.1625 | VRAM: 0.47 GB | LR: 5.66e-05
+  [Epoch 01/03] Batch 1100/1918 | Loss: 0.1624 | VRAM: 0.47 GB | LR: 5.62e-05
+  [Epoch 01/03] Batch 1150/1918 | Loss: 0.1622 | VRAM: 0.47 GB | LR: 5.58e-05
+  [Epoch 01/03] Batch 1200/1918 | Loss: 0.1621 | VRAM: 0.47 GB | LR: 5.53e-05
+  [Epoch 01/03] Batch 1250/1918 | Loss: 0.1622 | VRAM: 0.47 GB | LR: 5.49e-05
+  [Epoch 01/03] Batch 1300/1918 | Loss: 0.1619 | VRAM: 0.47 GB | LR: 5.44e-05
+  [Epoch 01/03] Batch 1350/1918 | Loss: 0.1618 | VRAM: 0.47 GB | LR: 5.39e-05
+  [Epoch 01/03] Batch 1400/1918 | Loss: 0.1615 | VRAM: 0.47 GB | LR: 5.34e-05
+  [Epoch 01/03] Batch 1450/1918 | Loss: 0.1615 | VRAM: 0.47 GB | LR: 5.28e-05
+  [Epoch 01/03] Batch 1500/1918 | Loss: 0.1613 | VRAM: 0.47 GB | LR: 5.22e-05
+  [Epoch 01/03] Batch 1550/1918 | Loss: 0.1612 | VRAM: 0.47 GB | LR: 5.17e-05
+  [Epoch 01/03] Batch 1600/1918 | Loss: 0.1610 | VRAM: 0.47 GB | LR: 5.11e-05
+  [Epoch 01/03] Batch 1650/1918 | Loss: 0.1610 | VRAM: 0.47 GB | LR: 5.05e-05
+  [Epoch 01/03] Batch 1700/1918 | Loss: 0.1607 | VRAM: 0.47 GB | LR: 4.98e-05
+  [Epoch 01/03] Batch 1750/1918 | Loss: 0.1605 | VRAM: 0.47 GB | LR: 4.92e-05
+  [Epoch 01/03] Batch 1800/1918 | Loss: 0.1604 | VRAM: 0.47 GB | LR: 4.85e-05
+  [Epoch 01/03] Batch 1850/1918 | Loss: 0.1604 | VRAM: 0.47 GB | LR: 4.79e-05
+  [Epoch 01/03] Batch 1900/1918 | Loss: 0.1603 | VRAM: 0.47 GB | LR: 4.72e-05
+  [Epoch 01/03] Batch 1918/1918 | Loss: 0.1602 | VRAM: 0.47 GB | LR: 4.69e-05
+
+>>> [EPOCH 01/03] COMPLETE | Avg Loss: 0.1602 | Time: 21.1 min | LR: 4.69e-05
+  ==> [CHECKPOINT] Best precision model saved to best_model.pth (Loss: 0.1602)
+
+  [Epoch 02/03] Batch 0050/1918 | Loss: 0.1595 | VRAM: 0.47 GB | LR: 4.62e-05
+  [Epoch 02/03] Batch 0100/1918 | Loss: 0.1577 | VRAM: 0.47 GB | LR: 4.55e-05
+  [Epoch 02/03] Batch 0150/1918 | Loss: 0.1556 | VRAM: 0.47 GB | LR: 4.48e-05
+  [Epoch 02/03] Batch 0200/1918 | Loss: 0.1551 | VRAM: 0.47 GB | LR: 4.40e-05
+  [Epoch 02/03] Batch 0250/1918 | Loss: 0.1542 | VRAM: 0.47 GB | LR: 4.33e-05
+  [Epoch 02/03] Batch 0300/1918 | Loss: 0.1544 | VRAM: 0.47 GB | LR: 4.25e-05
+  [Epoch 02/03] Batch 0350/1918 | Loss: 0.1541 | VRAM: 0.47 GB | LR: 4.17e-05
+  [Epoch 02/03] Batch 0400/1918 | Loss: 0.1538 | VRAM: 0.47 GB | LR: 4.09e-05
+  [Epoch 02/03] Batch 0450/1918 | Loss: 0.1539 | VRAM: 0.47 GB | LR: 4.01e-05
+  [Epoch 02/03] Batch 0500/1918 | Loss: 0.1538 | VRAM: 0.47 GB | LR: 3.93e-05
+  [Epoch 02/03] Batch 0550/1918 | Loss: 0.1542 | VRAM: 0.47 GB | LR: 3.85e-05
+  [Epoch 02/03] Batch 0600/1918 | Loss: 0.1542 | VRAM: 0.47 GB | LR: 3.77e-05
+  [Epoch 02/03] Batch 0650/1918 | Loss: 0.1544 | VRAM: 0.47 GB | LR: 3.69e-05
+  [Epoch 02/03] Batch 0700/1918 | Loss: 0.1539 | VRAM: 0.47 GB | LR: 3.61e-05
+  [Epoch 02/03] Batch 0750/1918 | Loss: 0.1540 | VRAM: 0.47 GB | LR: 3.52e-05
+  [Epoch 02/03] Batch 0800/1918 | Loss: 0.1535 | VRAM: 0.47 GB | LR: 3.44e-05
+  [Epoch 02/03] Batch 0850/1918 | Loss: 0.1537 | VRAM: 0.47 GB | LR: 3.35e-05
+  [Epoch 02/03] Batch 0900/1918 | Loss: 0.1538 | VRAM: 0.47 GB | LR: 3.27e-05
+  [Epoch 02/03] Batch 0950/1918 | Loss: 0.1537 | VRAM: 0.47 GB | LR: 3.18e-05
+  [Epoch 02/03] Batch 1000/1918 | Loss: 0.1538 | VRAM: 0.47 GB | LR: 3.10e-05
+  [Epoch 02/03] Batch 1050/1918 | Loss: 0.1541 | VRAM: 0.47 GB | LR: 3.02e-05
+  [Epoch 02/03] Batch 1100/1918 | Loss: 0.1542 | VRAM: 0.47 GB | LR: 2.93e-05
+  [Epoch 02/03] Batch 1150/1918 | Loss: 0.1544 | VRAM: 0.47 GB | LR: 2.85e-05
+  [Epoch 02/03] Batch 1200/1918 | Loss: 0.1543 | VRAM: 0.47 GB | LR: 2.76e-05
+  [Epoch 02/03] Batch 1250/1918 | Loss: 0.1543 | VRAM: 0.47 GB | LR: 2.68e-05
+  [Epoch 02/03] Batch 1300/1918 | Loss: 0.1540 | VRAM: 0.47 GB | LR: 2.59e-05
+  [Epoch 02/03] Batch 1350/1918 | Loss: 0.1539 | VRAM: 0.47 GB | LR: 2.51e-05
+  [Epoch 02/03] Batch 1400/1918 | Loss: 0.1538 | VRAM: 0.47 GB | LR: 2.42e-05
+  [Epoch 02/03] Batch 1450/1918 | Loss: 0.1535 | VRAM: 0.47 GB | LR: 2.34e-05
+  [Epoch 02/03] Batch 1500/1918 | Loss: 0.1534 | VRAM: 0.47 GB | LR: 2.26e-05
+  [Epoch 02/03] Batch 1550/1918 | Loss: 0.1535 | VRAM: 0.47 GB | LR: 2.18e-05
+  [Epoch 02/03] Batch 1600/1918 | Loss: 0.1534 | VRAM: 0.47 GB | LR: 2.10e-05
+  [Epoch 02/03] Batch 1650/1918 | Loss: 0.1534 | VRAM: 0.47 GB | LR: 2.02e-05
+  [Epoch 02/03] Batch 1700/1918 | Loss: 0.1534 | VRAM: 0.47 GB | LR: 1.94e-05
+  [Epoch 02/03] Batch 1750/1918 | Loss: 0.1535 | VRAM: 0.47 GB | LR: 1.86e-05
+  [Epoch 02/03] Batch 1800/1918 | Loss: 0.1533 | VRAM: 0.47 GB | LR: 1.78e-05
+  [Epoch 02/03] Batch 1850/1918 | Loss: 0.1535 | VRAM: 0.47 GB | LR: 1.70e-05
+  [Epoch 02/03] Batch 1900/1918 | Loss: 0.1535 | VRAM: 0.47 GB | LR: 1.63e-05
+  [Epoch 02/03] Batch 1918/1918 | Loss: 0.1535 | VRAM: 0.47 GB | LR: 1.60e-05
+
+>>> [EPOCH 02/03] COMPLETE | Avg Loss: 0.1535 | Time: 17.0 min | LR: 1.60e-05
+  ==> [CHECKPOINT] Best precision model saved to best_model.pth (Loss: 0.1535)
+
+  [Epoch 03/03] Batch 0050/1918 | Loss: 0.1510 | VRAM: 0.47 GB | LR: 1.52e-05
+  [Epoch 03/03] Batch 0100/1918 | Loss: 0.1503 | VRAM: 0.47 GB | LR: 1.45e-05
+  [Epoch 03/03] Batch 0150/1918 | Loss: 0.1498 | VRAM: 0.47 GB | LR: 1.38e-05
+  [Epoch 03/03] Batch 0200/1918 | Loss: 0.1496 | VRAM: 0.47 GB | LR: 1.31e-05
+  [Epoch 03/03] Batch 0250/1918 | Loss: 0.1495 | VRAM: 0.47 GB | LR: 1.24e-05
+  [Epoch 03/03] Batch 0300/1918 | Loss: 0.1498 | VRAM: 0.47 GB | LR: 1.17e-05
+  [Epoch 03/03] Batch 0350/1918 | Loss: 0.1497 | VRAM: 0.47 GB | LR: 1.10e-05
+  [Epoch 03/03] Batch 0400/1918 | Loss: 0.1504 | VRAM: 0.47 GB | LR: 1.04e-05
+  [Epoch 03/03] Batch 0450/1918 | Loss: 0.1508 | VRAM: 0.47 GB | LR: 9.76e-06
+  [Epoch 03/03] Batch 0500/1918 | Loss: 0.1503 | VRAM: 0.47 GB | LR: 9.14e-06
+  [Epoch 03/03] Batch 0550/1918 | Loss: 0.1503 | VRAM: 0.47 GB | LR: 8.54e-06
+  [Epoch 03/03] Batch 0600/1918 | Loss: 0.1506 | VRAM: 0.47 GB | LR: 7.96e-06
+  [Epoch 03/03] Batch 0650/1918 | Loss: 0.1501 | VRAM: 0.47 GB | LR: 7.39e-06
+  [Epoch 03/03] Batch 0700/1918 | Loss: 0.1497 | VRAM: 0.47 GB | LR: 6.84e-06
+  [Epoch 03/03] Batch 0750/1918 | Loss: 0.1495 | VRAM: 0.47 GB | LR: 6.31e-06
+  [Epoch 03/03] Batch 0800/1918 | Loss: 0.1497 | VRAM: 0.47 GB | LR: 5.80e-06
+  [Epoch 03/03] Batch 0850/1918 | Loss: 0.1494 | VRAM: 0.47 GB | LR: 5.31e-06
+  [Epoch 03/03] Batch 0900/1918 | Loss: 0.1491 | VRAM: 0.47 GB | LR: 4.84e-06
+  [Epoch 03/03] Batch 0950/1918 | Loss: 0.1493 | VRAM: 0.47 GB | LR: 4.39e-06
+  [Epoch 03/03] Batch 1000/1918 | Loss: 0.1494 | VRAM: 0.47 GB | LR: 3.95e-06
+  [Epoch 03/03] Batch 1050/1918 | Loss: 0.1496 | VRAM: 0.47 GB | LR: 3.54e-06
+  [Epoch 03/03] Batch 1100/1918 | Loss: 0.1498 | VRAM: 0.47 GB | LR: 3.15e-06
+  [Epoch 03/03] Batch 1150/1918 | Loss: 0.1495 | VRAM: 0.47 GB | LR: 3.00e-06
+  [Epoch 03/03] Batch 1200/1918 | Loss: 0.1494 | VRAM: 0.47 GB | LR: 3.00e-06
+  [Epoch 03/03] Batch 1250/1918 | Loss: 0.1497 | VRAM: 0.47 GB | LR: 3.00e-06
+  [Epoch 03/03] Batch 1300/1918 | Loss: 0.1500 | VRAM: 0.47 GB | LR: 3.00e-06
+  [Epoch 03/03] Batch 1350/1918 | Loss: 0.1500 | VRAM: 0.47 GB | LR: 3.00e-06
+  [Epoch 03/03] Batch 1400/1918 | Loss: 0.1500 | VRAM: 0.47 GB | LR: 3.00e-06
+  [Epoch 03/03] Batch 1450/1918 | Loss: 0.1501 | VRAM: 0.47 GB | LR: 3.00e-06
+  [Epoch 03/03] Batch 1500/1918 | Loss: 0.1499 | VRAM: 0.47 GB | LR: 3.00e-06
+  [Epoch 03/03] Batch 1550/1918 | Loss: 0.1499 | VRAM: 0.47 GB | LR: 3.00e-06
+  [Epoch 03/03] Batch 1600/1918 | Loss: 0.1500 | VRAM: 0.47 GB | LR: 3.00e-06
+  [Epoch 03/03] Batch 1650/1918 | Loss: 0.1499 | VRAM: 0.47 GB | LR: 3.00e-06
+  [Epoch 03/03] Batch 1700/1918 | Loss: 0.1500 | VRAM: 0.47 GB | LR: 3.00e-06
+  [Epoch 03/03] Batch 1750/1918 | Loss: 0.1500 | VRAM: 0.47 GB | LR: 3.00e-06
+  [Epoch 03/03] Batch 1800/1918 | Loss: 0.1500 | VRAM: 0.47 GB | LR: 3.00e-06
+  [Epoch 03/03] Batch 1850/1918 | Loss: 0.1501 | VRAM: 0.47 GB | LR: 3.00e-06
+  [Epoch 03/03] Batch 1900/1918 | Loss: 0.1501 | VRAM: 0.47 GB | LR: 3.00e-06
+  [Epoch 03/03] Batch 1918/1918 | Loss: 0.1500 | VRAM: 0.47 GB | LR: 3.00e-06
+
+>>> [EPOCH 03/03] COMPLETE | Avg Loss: 0.1500 | Time: 16.7 min | LR: 3.00e-06
+  ==> [CHECKPOINT] Best precision model saved to best_model.pth (Loss: 0.1500)
+
+
+====================================================================
+  PRECISION REFINEMENT COMPLETE IN 54.8 MINUTES!
+  Baseline Loss: 0.8044  ==>  Best Final Loss: 0.1500
+  Saved to: E:\rishabh\sih\DepthWizard\backend\weights\best_model.pth & E:\rishabh\sih\DepthWizard\backend\weights\final_model.pth
+====================================================================
+
+Report generated: E:\rishabh\sih\DepthWizard\backend\logs\PRECISION_TRAINING_REPORT.md

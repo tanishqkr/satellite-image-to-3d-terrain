@@ -1,0 +1,28 @@
+
+====================================================================
+  DEPTHWIZARD: PRECISION FINE-TUNING REFINEMENT (STAGE 2)
+  Device: NVIDIA GeForce RTX 4060 Laptop GPU (8.59 GB VRAM)
+  Warm Start Weights: E:\rishabh\sih\DepthWizard\backend\weights\archive_run1\best_model_epoch02_loss0.8044.pth
+  Epochs: 3 | Batch Size: 8 | FP16 AMP
+  Head LR: 6.0e-5 | Backbone LR: 5.0e-6 (Precision Gradient)
+  Loss: Stable Log1p SILog (0.5) + Smooth L1 (0.3) + Sobel Grad (0.2)
+====================================================================
+
+[11:23:36] Precision dataset loaded! Total valid patches on disk: 15348
+[11:23:36] Initializing base architecture depth-anything/Depth-Anything-V2-Small-hf...
+[11:23:40] Bootstrapping from proven Run 1 checkpoint: E:\rishabh\sih\DepthWizard\backend\weights\archive_run1\best_model_epoch02_loss0.8044.pth
+[11:23:41] Loaded warm weights successfully! Target baseline loss: 0.8044
+
+[11:23:42] Commencing precision training: 1918 batches/epoch, 3 epochs.
+
+  [Epoch 01/03] Batch 0050/1918 | Loss: 0.2066 | VRAM: 0.48 GB | LR: 4.20e-06
+  [Epoch 01/03] Batch 0150/1918 | Loss: 0.1924 | VRAM: 0.47 GB | LR: 1.20e-05
+  [Epoch 01/03] Batch 0400/1918 | Loss: 0.1930 | VRAM: 0.47 GB | LR: 1.86e-05
+  [Epoch 01/03] Batch 0500/1918 | Loss: 0.1904 | VRAM: 0.47 GB | LR: 2.34e-05
+  [Epoch 01/03] Batch 0550/1918 | Loss: 0.1854 | VRAM: 0.47 GB | LR: 3.84e-05
+  [Epoch 01/03] Batch 0600/1918 | Loss: 0.1818 | VRAM: 0.47 GB | LR: 5.34e-05
+  [Epoch 01/03] Batch 0650/1918 | Loss: 0.1784 | VRAM: 0.47 GB | LR: 6.00e-05
+
+>>> [EPOCH 01/03] COMPLETE | Avg Loss: 0.1784 | Time: 9.6 min | LR: 6.00e-05
+  ==> [CHECKPOINT] Best precision model saved to best_model.pth (Loss: 0.1784)
+

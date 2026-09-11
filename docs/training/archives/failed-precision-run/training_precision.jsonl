@@ -1,0 +1,7 @@
+{"type": "batch", "epoch": 1, "batch": 50, "total_batches": 1918, "loss": 0.20657, "lr_head": 4.2000000000000004e-06, "vram_gb": 0.48, "time": "11:24:08"}
+{"type": "batch", "epoch": 1, "batch": 150, "total_batches": 1918, "loss": 0.19242, "lr_head": 1.2e-05, "vram_gb": 0.47, "time": "11:24:40"}
+{"type": "batch", "epoch": 1, "batch": 400, "total_batches": 1918, "loss": 0.19296, "lr_head": 1.86e-05, "vram_gb": 0.47, "time": "11:25:54"}
+{"type": "batch", "epoch": 1, "batch": 500, "total_batches": 1918, "loss": 0.19044, "lr_head": 2.3400000000000003e-05, "vram_gb": 0.47, "time": "11:26:24"}
+{"type": "batch", "epoch": 1, "batch": 550, "total_batches": 1918, "loss": 0.18537, "lr_head": 3.8400000000000005e-05, "vram_gb": 0.47, "time": "11:26:48"}
+{"type": "batch", "epoch": 1, "batch": 600, "total_batches": 1918, "loss": 0.18177, "lr_head": 5.3400000000000004e-05, "vram_gb": 0.47, "time": "11:27:11"}
+{"type": "batch", "epoch": 1, "batch": 650, "total_batches": 1918, "loss": 0.17836, "lr_head": 5.9996501367384776e-05, "vram_gb": 0.47, "time": "11:27:35"}
