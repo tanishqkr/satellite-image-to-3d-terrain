@@ -1,0 +1,136 @@
+{
+  "model_comparison": {
+    "depthwizard_finetuned": {
+      "backbone": "Depth-Anything-V2-Small (ViT-S)",
+      "weights": "best_model.pth (GAMUS Stage 2 + Evidential Head)",
+      "parameters_m": 24.785089,
+      "domain_tuning": "Supervised on aerial satellite DSMs (5 US cities + ISRO georef)",
+      "head_support": "Evidential NIG uncertainty head supported (\u00a71.4)"
+    },
+    "base_depth_anything_v2": {
+      "backbone": "Depth-Anything-V2-Small (ViT-S)",
+      "weights": "Official HuggingFace Pretrained",
+      "parameters_m": 24.785089,
+      "domain_tuning": "Zero-shot relative depth (internet mixed RGB)",
+      "head_support": "DPT standard head"
+    },
+    "zoedepth_foundation": {
+      "backbone": "BEiT-Large + ZoeDepth Metric Head",
+      "weights": "Intel/zoedepth-nyu-kitti",
+      "parameters_m": 345.073307,
+      "domain_tuning": "Zero-shot metric depth (NYU-Depth indoor + KITTI automotive)",
+      "head_support": "Bin-based metric head (no evidential head)"
+    }
+  },
+  "results": {
+    "IN-DOMAIN (US Urban Orthophotos, 0.33m GSD, Nadir)": [
+      {
+        "file": "01_geotiff_full_1024.tif",
+        "gsd": 0.33,
+        "is_georef": true,
+        "dw_latency_ms": 274.0,
+        "dw_range": "[0.0m, 47.0m] (span 47.0m)",
+        "dw_edge_sharpness": 4.888,
+        "dw_scale_drift": 0.1989,
+        "base_latency_ms": 289.2,
+        "base_edge_sharpness": 0.06,
+        "zoe_latency_ms": 2653.3,
+        "zoe_range": "[5.25m, 14.05m] (span 8.79m)",
+        "zoe_edge_sharpness": 0.307,
+        "zoe_scale_drift": 0.026
+      },
+      {
+        "file": "02_geotiff_downtown_512.tif",
+        "gsd": 0.33,
+        "is_georef": true,
+        "dw_latency_ms": 281.8,
+        "dw_range": "[0.0m, 47.0m] (span 47.0m)",
+        "dw_edge_sharpness": 4.888,
+        "dw_scale_drift": 0.1989,
+        "base_latency_ms": 284.0,
+        "base_edge_sharpness": 0.06,
+        "zoe_latency_ms": 2126.2,
+        "zoe_range": "[5.25m, 14.05m] (span 8.79m)",
+        "zoe_edge_sharpness": 0.307,
+        "zoe_scale_drift": 0.026
+      },
+      {
+        "file": "01_optical_urban_1024.png",
+        "gsd": 1.0,
+        "is_georef": false,
+        "dw_latency_ms": 276.7,
+        "dw_range": "[0.000, 1.000] (rel)",
+        "dw_edge_sharpness": 0.104,
+        "dw_scale_drift": 0.1989,
+        "base_latency_ms": 270.2,
+        "base_edge_sharpness": 0.06,
+        "zoe_latency_ms": 2140.0,
+        "zoe_range": "[5.25m, 14.05m] (span 8.79m)",
+        "zoe_edge_sharpness": 0.307,
+        "zoe_scale_drift": 0.026
+      },
+      {
+        "file": "02_optical_commercial_512.png",
+        "gsd": 1.0,
+        "is_georef": false,
+        "dw_latency_ms": 262.4,
+        "dw_range": "[0.000, 1.000] (rel)",
+        "dw_edge_sharpness": 0.104,
+        "dw_scale_drift": 0.1989,
+        "base_latency_ms": 288.3,
+        "base_edge_sharpness": 0.06,
+        "zoe_latency_ms": 2095.3,
+        "zoe_range": "[5.25m, 14.05m] (span 8.79m)",
+        "zoe_edge_sharpness": 0.307,
+        "zoe_scale_drift": 0.026
+      }
+    ],
+    "OUT-OF-DOMAIN (Indian UTM 43N, Varied Altitude, Compressed/Oblique)": [
+      {
+        "file": "04_geotiff_isro_utm43_512.tif",
+        "gsd": 0.5,
+        "is_georef": true,
+        "dw_latency_ms": 305.1,
+        "dw_range": "[0.0m, 70.6m] (span 70.6m)",
+        "dw_edge_sharpness": 3.862,
+        "dw_scale_drift": 0.0017,
+        "base_latency_ms": 314.7,
+        "base_edge_sharpness": 0.022,
+        "zoe_latency_ms": 2133.3,
+        "zoe_range": "[0.92m, 1.42m] (span 0.50m)",
+        "zoe_edge_sharpness": 0.013,
+        "zoe_scale_drift": 0.014
+      },
+      {
+        "file": "03_optical_residential_640.png",
+        "gsd": 1.0,
+        "is_georef": false,
+        "dw_latency_ms": 306.9,
+        "dw_range": "[0.000, 1.000] (rel)",
+        "dw_edge_sharpness": 0.117,
+        "dw_scale_drift": 0.2028,
+        "base_latency_ms": 267.7,
+        "base_edge_sharpness": 0.066,
+        "zoe_latency_ms": 2112.8,
+        "zoe_range": "[4.65m, 13.19m] (span 8.55m)",
+        "zoe_edge_sharpness": 0.277,
+        "zoe_scale_drift": 0.11
+      },
+      {
+        "file": "04_optical_district_512.jpg",
+        "gsd": 1.0,
+        "is_georef": false,
+        "dw_latency_ms": 269.0,
+        "dw_range": "[0.000, 1.000] (rel)",
+        "dw_edge_sharpness": 0.116,
+        "dw_scale_drift": 0.1346,
+        "base_latency_ms": 282.0,
+        "base_edge_sharpness": 0.051,
+        "zoe_latency_ms": 2151.5,
+        "zoe_range": "[5.00m, 13.29m] (span 8.28m)",
+        "zoe_edge_sharpness": 0.298,
+        "zoe_scale_drift": 0.035
+      }
+    ]
+  }
+}
