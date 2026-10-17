@@ -1,186 +1,229 @@
-# DepthWizard — Single-View Satellite RGB to Metric DSM
+# 🧙‍♂️ DepthWizard — Single-View Optical Satellite to Metric DSM & 3D Digital Twin
 
-[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-CUDA%20fp16-EE4C2C.svg)](https://pytorch.org/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.110%2B-009688.svg)](https://fastapi.tiangolo.com/)
-[![React 18](https://img.shields.io/badge/React-18.3-61DAFB.svg)](https://react.dev/)
-[![Three.js](https://img.shields.io/badge/Three.js-WebGL-000000.svg)](https://threejs.org/)
+### High-Precision Monocular Elevation Reconstruction, Hydrologic Inundation Modeling & Real-Time 60 FPS Drone Avionics
+**Space Applications Centre (SAC), ISRO · Smart India Hackathon 2026 (SIH26175) · Theme: Disaster Management · Team: DEBUG MAXXING**
+
+---
+
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB.svg?logo=python&logoColor=white)](https://www.python.org/)
+[![PyTorch 2.5+](https://img.shields.io/badge/PyTorch-2.5%2B%20CUDA%20fp16-EE4C2C.svg?logo=pytorch&logoColor=white)](https://pytorch.org/)
+[![Model: ViT-Large](https://img.shields.io/badge/Model-ViT--Large%20(335.3M)-792EE5.svg)](https://huggingface.co/depth-anything)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.110%2B-009688.svg?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![React 18](https://img.shields.io/badge/React-18.3-61DAFB.svg?logo=react&logoColor=black)](https://react.dev/)
+[![Three.js](https://img.shields.io/badge/Three.js-WebGL%2060FPS-000000.svg?logo=three.js&logoColor=white)](https://threejs.org/)
+[![Vite](https://img.shields.io/badge/Vite-6.0-646CFF.svg?logo=vite&logoColor=white)](https://vitejs.dev/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**DepthWizard** reconstructs a high-fidelity **Digital Surface Model (DSM)** from a **single overhead satellite or aerial RGB image** — no stereo pairs or LiDAR required. It fine-tunes a `Depth Anything V2 ViT-S` backbone on the GAMUS/DFC2019 overhead dataset, calibrates predicted depth into metric elevation, and renders an interactive 3D WebGL terrain with flood simulation, cross-section profiling, and 32-bit GeoTIFF export.
+---
+
+## 🌍 Overview
+
+In disaster operations (flash floods, cyclone storm surges, landslides), emergency rescue teams require immediate, high-fidelity 3D elevation models without waiting for expensive aerial LiDAR or multi-pass stereo satellite pairs.
+
+**DepthWizard** solves this challenge by reconstructing an **absolute metric 3D Digital Surface Model (DSM)** from a **single monocular satellite or aerial optical image** in **under 1 second**. It powers an interactive **60 FPS Three.js WebGL digital twin** equipped with real-time hydrologic flood simulation, tactical drone FPV flight avionics, volumetric battle damage assessment, and 32-bit OGC GeoTIFF export — running 100% offline and sovereign on local hardware.
 
 ![DepthWizard landing](docs/images/landing.png)
 
 ---
 
-## Highlights
+## ⚡ Key Capabilities
 
 | Feature | Description |
 |---|---|
-| **Single-view monocular DSM** | Fine-tuned `Depth Anything V2 ViT-S` using SILog + edge-gradient-matching losses (no stereo/LiDAR dependency). |
-| **Metric prior calibration** | Georeferenced GeoTIFFs (`EPSG:32617`, `EPSG:32643`, sub-meter GSD) yield physical elevations in meters via morphological DTM/nDSM decomposition. |
-| **Optical RGB support** | Standard PNG/JPG aerial imagery produces a normalized relative DSM in `[0.0, 1.0]`. |
-| **Interactive 3D viewport** | Three.js WebGL canvas with displacement shading, 6-DoF flythrough, and elevation colormaps. |
-| **Hydrologic flood simulator** | Real-time waterline thresholding with disaster presets (+2m high tide, +10m storm surge, +25m flash flood). |
-| **Cross-section profiler** | 256-probe centerline elevation transect with geometric analytics. |
-| **32-bit OGC GeoTIFF export** | Single-band `float32` raster preserving original CRS, affine transform, and GSD. |
+| **True Metric Elevation** | Fine-tuned **ViT-Large backbone (335.3M params)** predicting physical heights directly in **meters ($m$)**, eliminating unitless relative disparity. |
+| **60 FPS Tactical Drone FPV** | Real-time 6-DOF drone avionics (`W/A/S/D`, `Space/Q/E`), ray-marched proximity LIDAR array, HUD telemetry (artificial horizon, compass, AGL/MSL altitude), and Autopilot modes (`Manual`, `Orbit`, `Transect`). |
+| **Hydrologic Inundation Engine** | 512-bin CDF submergence simulator with real-time waterline controls, emergency presets (+2m tide, +10m surge, +25m flash flood), flooded hectare calculations, and hazard risk tiering. |
+| **Voxel Block DSM** | Instanced mesh voxelization rendering stepped topographic blocks (up to 256×256 UI / 512×512 pooling) with discrete Stepped Turbo gradient paletting. |
+| **Centerline Transect Profiler** | Interactive 256-probe cross-section profiler graphing elevation distance ($m$), min/max relief, and maximum slope gradient (%). |
+| **Dual Ingestion & Matrix Compositor** | Ingests georeferenced GeoTIFFs (`EPSG:32617`, `EPSG:32643`, sub-meter GSD) or standard optical RGB (PNG/JPG); includes a 2×2 grid tile stitching compositor for large mosaics. |
+| **Tactical Spatial Analytics** | Integrated 2D observer viewshed masking, point-to-point Line of Sight (LoS), volumetric structural change detection (BDA diff), and autonomous Nap-of-the-Earth (NOE) terrain-following path planning. |
+| **32-Bit OGC GeoTIFF GIS Exporter** | Single-band `float32` raster exports preserving CRS, affine transform, and metric elevation for direct integration into **QGIS**, **ArcGIS**, and **ISRO Bhuvan**. |
 
 ---
 
-## Demo Imagery
+## 📸 Interactive Visualizer
 
-| Terrain view | Flood simulation | Cross-section |
+| Terrain Displacement | Flood Inundation Simulator | Elevation Cross-Section |
 |---|---|---|
 | ![Terrain view](docs/images/terrain-view.png) | ![Flood simulation](docs/images/flood-simulation.png) | ![Cross-section](docs/images/cross-section.png) |
 
 ---
 
-## Architecture
+## 🏗️ Architecture & Processing Pipeline
 
 ```mermaid
 flowchart TD
-    A["Satellite Tile: GeoTIFF or PNG"] --> B["FastAPI Ingestion"]
-    B --> C["Rasterio Metadata Extraction"]
-    B --> D["Depth Anything V2 Backbone"]
-    D --> E["Normalized Disparity Map"]
-    C --> F{Is Georeferenced?}
-    F -->|Yes| G["Metric Calibration: DTM_base + α·nDSM"]
-    F -->|No| H["Relative Normalization: 0.0 to 1.0"]
-    G --> I["Decimated 512×512 Mesh"]
-    H --> I
-    I --> J["FastAPI Telemetry + Heightfield"]
-    J --> K["Three.js 3D WebGL Canvas"]
-    K --> L["3D Flythrough / Relief"]
-    K --> M["Flood Simulation"]
-    K --> N["Elevation Cross-Section"]
-    K --> O["32-Bit GeoTIFF Export"]
+    subgraph INGESTION["1. Geospatial & Optical Ingestion"]
+        A["Input: GeoTIFF, PNG, JPEG"] --> B["FastAPI /api/upload"]
+        B --> C["Rasterio Geospatial Parser"]
+        C --> D{"Georeferenced?"}
+        D -->|Yes| E["Extract CRS, Bounds, Transform, GSD"]
+        D -->|No| F["Standard Optical Aerial Asset"]
+    end
+
+    subgraph INFERENCE["2. Neural Metric Inference (PyTorch CUDA)"]
+        B --> G["ViT-Large 335.3M Backbone"]
+        G --> H["PyTorch AMP FP16 Inference"]
+        H --> I["Metric Regression Head (Meters)"]
+        I --> J["Evidential / MC-Dropout Uncertainty (Optional)"]
+    end
+
+    subgraph CALIBRATION["3. Calibration & Mesh Generation"]
+        E --> K["Metric Passthrough & DTM Fusion"]
+        F --> L["Normalized Relative Depth [0.0, 1.0]"]
+        J --> K
+        J --> L
+        K --> M["Mesh Builder & Normal Map Generator"]
+        L --> M
+        M --> N["32-Bit Float GeoTIFF Cache"]
+    end
+
+    subgraph STUDIO["4. Interactive 3D WebGL Studio (Three.js)"]
+        M --> O["Photoreal 3D Terrain Displacement"]
+        M --> P["60 FPS Tactical Drone FPV (LIDAR HUD)"]
+        M --> Q["Hydrologic Flood Simulator (512-bin CDF)"]
+        M --> R["Voxel Block DSM & Stepped Turbo Palette"]
+        M --> S["Viewshed, LoS & NOE Route Planner"]
+        N --> T["OGC 32-Bit GeoTIFF GIS Export"]
+    end
 ```
 
-- **Model**: `Depth-Anything-V2-Small-hf` (24.8M parameters), fine-tuned on `earthflow/GAMUS` (DFC2019).
-- **Loss**: `ℒ = ℒ_SILog(d, d*) + λ·ℒ_Grad(d, d*)` — scale-invariant consistency plus Sobel edge sharpening.
-- **Weights**: `backend/weights/best_model.pth` and `backend/weights/final_model.pth`, tracked via [Git LFS](https://git-lfs.com/).
-
 ---
 
-## Documentation
+## 🧠 Neural Backbone & Benchmark Accuracy
 
-| Area | Document |
+DepthWizard's vision backbone fine-tunes **`Depth-Anything-V2-Large-hf`** on **17,524 high-resolution satellite and aerial pairs** across diverse environments:
+- **GAMUS Dataset** (13,480 samples): Sub-meter urban & suburban structures.
+- **DFC2023 Benchmark** (1,595 tiles): Ultra-high-resolution global urban architecture.
+- **Open-Canopy Dataset** (16 large tiles): Dense forest canopies, vegetation, and rugged terrain.
+
+### Performance & Validation Benchmarks
+
+| Metric / Parameter | Value |
 |---|---|
-| System brief | [docs/reports/system_brief_and_consultant_dossier.md](docs/reports/system_brief_and_consultant_dossier.md) |
-| Project brief | [docs/reports/project_brief.md](docs/reports/project_brief.md) |
-| Mesh architecture | [docs/reports/mesh_construction_and_project_architecture.md](docs/reports/mesh_construction_and_project_architecture.md) |
-| Architecture master plan | [docs/architecture/DEPTHWIZARD_MASTER_PLAN.md](docs/architecture/DEPTHWIZARD_MASTER_PLAN.md) |
-| Methodology | [docs/methodology/GAMUS_TRAINING_PLAN.md](docs/methodology/GAMUS_TRAINING_PLAN.md) · [docs/methodology/ISRO_SAC_RESEARCH_SPECIFICATION.md](docs/methodology/ISRO_SAC_RESEARCH_SPECIFICATION.md) |
-| Benchmarks & verification | [docs/benchmarks/verification_report.md](docs/benchmarks/verification_report.md) · [docs/benchmarks/VALIDATION_BENCHMARK_REPORT.md](docs/benchmarks/VALIDATION_BENCHMARK_REPORT.md) |
-| Training reports | [docs/training/README.md](docs/training/README.md) |
-| Knowledge graph | [docs/knowledge-graph/GRAPH_REPORT.md](docs/knowledge-graph/GRAPH_REPORT.md) |
+| **Architecture** | Vision Transformer Large (**ViT-Large/14** + DPT Neck) |
+| **Model Parameters** | **335.3 Million Parameters** |
+| **Global Urban Accuracy (DFC2023)** | **1.74 m MAE** |
+| **Urban Topography Accuracy (GAMUS)** | **2.14 m MAE** |
+| **Validation Mean MAE** | **4.91 m** (-33.8% error reduction over baseline) |
+| **Inference Latency** | **~250 ms – 650 ms** on NVIDIA RTX 4060 (CPU fallback supported) |
+| **Primary Checkpoint** | `backend/weights/metric_best.pth` (~1.34 GB) |
+
+*(Note: PyTorch auto-detects GPU acceleration; if CUDA is unavailable or during local testing, CPU fallback with existing weights is automatically applied).*
 
 ---
 
-## Requirements
+## 🚀 Quickstart & Installation
 
-- **OS**: Windows 10/11, Linux, macOS.
-- **Python**: 3.10–3.11 recommended.
-- **Node.js**: 18.x or 20.x LTS.
-- **GPU (recommended)**: NVIDIA with CUDA (e.g. RTX 3060/4060+); inference ~250–650 ms on CUDA `fp16`.
-- **CPU (fallback)**: fully supported — PyTorch auto-selects CPU when CUDA is unavailable.
+### Option 1: One-Click Launch (Windows)
+```cmd
+run_local.bat
+```
+*Automatically validates Python virtual environment, launches the FastAPI backend on port `8000`, and starts the frontend dev server.*
 
----
+### Option 2: Manual Setup
 
-## Quickstart
-
-### 1. Clone & fetch LFS weights
+#### 1. Backend Setup
 ```bash
+# Clone the repository
 git clone https://github.com/tanishqkr/satellite-image-to-3d-terrain.git
 cd satellite-image-to-3d-terrain
-git lfs install
-git lfs pull
-```
 
-### 2. Backend
-```bash
+# Create and activate virtual environment
 python -m venv .venv
-# Windows: .venv\Scripts\activate
-# Linux/macOS: source .venv/bin/activate
+# On Windows: .venv\Scripts\activate
+# On Linux/macOS: source .venv/bin/activate
+
+# Install dependencies
 pip install -r requirements.txt
+
+# Start backend server
+python -m uvicorn app.main:app --app-dir backend --host 0.0.0.0 --port 8000
 ```
 
-### 3. Frontend
+#### 2. Frontend Setup
 ```bash
+# In a new terminal:
 cd frontend
 npm install
-cd ..
-```
-
-### 4. Launch
-**Terminal 1 — Backend API:**
-```bash
-# From project root:
-.venv/bin/python backend/run_server.py   # Windows: .venv\Scripts\python.exe backend\run_server.py
-# → http://127.0.0.1:8000
-```
-
-**Terminal 2 — Frontend dev server:**
-```bash
-cd frontend
 npm run dev
-# → http://localhost:5173
 ```
 
-On Windows, `run_local.bat` launches both.
+Access the application at **`http://localhost:5173`** (or `http://localhost:3000`). Interactive API documentation is available at **`http://localhost:8000/docs`**.
 
 ---
 
-## Project Structure
+## 📡 REST API Reference
+
+| Endpoint | Method | Description |
+|---|:---:|---|
+| `/api/upload` | `POST` | Ingests GeoTIFF / optical image, runs metric inference, and returns heightmap, normal map, and mesh statistics. |
+| `/api/export/{request_id}` | `GET` | Downloads the calibrated single-band 32-bit floating point (`float32`) GeoTIFF. |
+| `/api/viewshed` | `POST` | Computes 2D observer viewshed visibility, occlusions, and coverage percentage over the terrain. |
+| `/api/los` | `POST` | Calculates point-to-point 3D Line-of-Sight clearance and obstacle profiles. |
+| `/api/bda/diff` | `POST` | Automated volumetric differencing and structural damage assessment (pre- vs post-event). |
+| `/api/route/noe` | `POST` | Computes 3D Nap-of-the-Earth (NOE) terrain-following route corridors avoiding threat exposure. |
+| `/api/health` | `GET` | Health check returning device discovery, CUDA availability, and GPU VRAM telemetry. |
+
+---
+
+## 📂 Project Structure
 
 ```
+depthwizard/
 ├── backend/
 │   ├── app/
-│   │   ├── api/           # FastAPI routes + Pydantic schemas
-│   │   ├── core/          # Config, paths, CORS
-│   │   └── services/      # depth_estimator, calibration, mesh_builder, exporter, ...
-│   ├── training/          # Losses, GAMUS fine-tuning, validation, benchmarks
-│   ├── tests/             # Backend test suite
-│   ├── weights/           # best_model.pth / final_model.pth (Git LFS)
-│   ├── requirements.txt
-│   └── run_server.py
+│   │   ├── api/routes.py              # FastAPI endpoints (/upload, /export, /viewshed, /bda, /route)
+│   │   ├── config.py                  # Model hyperparameters, path configs, and device settings
+│   │   ├── services/
+│   │   │   ├── depth_estimator.py     # ViT metric depth inference & uncertainty estimation
+│   │   │   ├── calibration.py         # True metric passthrough & height calibration
+│   │   │   ├── geospatial.py          # Rasterio GeoTIFF parser & affine transform extraction
+│   │   │   ├── mesh_builder.py        # 3D heightfield, normal maps & colorization generator
+│   │   │   ├── visibility.py          # Observer viewshed & ray-marched Line of Sight (LoS)
+│   │   │   ├── change_detection.py    # Pre/post volumetric damage assessment (BDA)
+│   │   │   ├── route_planner.py       # 3D Nap-of-the-Earth (NOE) path planner
+│   │   │   └── orthorectify.py        # Oblique perspective & off-nadir rectification
+│   │   └── main.py                    # Application factory & CORS middleware
+│   ├── weights/                       # Model weights (metric_best.pth / best_model.pth)
+│   └── tests/                         # Backend test suite (pytest)
 ├── frontend/
 │   ├── src/
-│   │   ├── components/    # TerrainCanvas, FloodSimulator, CrossSection, Dropzone, ...
-│   │   ├── lib/           # voxelize, rayMarch, matrixCompositor, viewshed, hydrology utilities
-│   │   ├── hooks/
-│   │   ├── styles/
-│   │   └── App.tsx
-│   ├── public/            # Sample georeferenced + optical satellite tiles
+│   │   ├── components/
+│   │   │   ├── TerrainCanvas.tsx      # Three.js 3D terrain viewport with colormapping
+│   │   │   ├── FloodSimulator.tsx     # 512-bin CDF hydrologic inundation simulator
+│   │   │   ├── CrossSection.tsx       # Recharts centerline elevation transect profiler
+│   │   │   ├── VoxelTerrain.tsx       # Instanced mesh voxel/block DSM renderer
+│   │   │   ├── MatrixModal.tsx        # Multi-tile 2x2 grid stitching compositor
+│   │   │   ├── ViewshedAnalyzer.tsx   # 3D observer visibility & radar coverage inspector
+│   │   │   ├── BdaAnalyzer.tsx        # Volumetric structural damage assessment UI
+│   │   │   └── drone/                 # 60 FPS Drone flight simulator
+│   │   │       ├── DroneCanvas.tsx    # R3F drone viewport & camera switcher
+│   │   │       ├── DroneFlightController.tsx # 6-DOF flight dynamics & collision system
+│   │   │       ├── DroneHUD.tsx       # Avionics OSD (horizon, compass, altimeter)
+│   │   │       └── ProximitySensors.tsx # Ray-marched LIDAR proximity sensor array
+│   │   ├── lib/                       # Pure math utilities (voxelize, rayMarch, matrixCompositor)
+│   │   └── App.tsx                    # Main interface layout & telemetry header
 │   └── package.json
-├── docs/                  # Architecture, methodology, benchmarks, reports, training
-├── scripts/               # Tooling: sample scene generator, browser E2E tests
-├── test_datasets/         # GeoTIFF + optical verification tiles
-├── requirements.txt
-└── run_local.bat
+├── docs/                              # Architecture, methodology, benchmarks & training reports
+├── test_datasets/                     # Sample GeoTIFF & optical verification tiles
+├── requirements.txt                   # Backend Python dependencies
+└── run_local.bat                      # One-click Windows launcher
 ```
 
 ---
 
-## Testing
+## 👥 Research Attribution & Hackathon Credentials
 
-**Backend:**
-```bash
-cd backend
-python -m pytest tests/
-```
-
-**Frontend:**
-```bash
-cd frontend
-npm test
-npm run build
-```
-
-See [docs/training/README.md](docs/training/README.md) for the model fine-tuning and validation details.
+* **Challenge**: Smart India Hackathon (SIH 2026)
+* **Problem Statement ID**: **SIH26175**
+* **Nodal Agency**: **Space Applications Centre (SAC), Indian Space Research Organisation (ISRO)**
+* **Category**: Software / AI & Geospatial Computing
+* **Domain Theme**: **Disaster Management**
+* **Team**: **DEBUG MAXXING**
 
 ---
 
-## License
+## 📄 License
 
-[MIT](LICENSE)
+This project is licensed under the [MIT License](LICENSE).
